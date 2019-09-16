@@ -1,0 +1,30 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: #A7CFE9;
+}
+
+.game-board {
+    width: 640px;
+    height: 640px;
+    display: flex;
+    border: 2px solid lime;
+}
+
+.game-card {
+    border: 2px solid purple;
+}
+
+.card-front {
+    border: 2px solid blue;
+}
+
+.card-back {
+    border: 2px solid blue;
+}
+
