@@ -7,24 +7,35 @@
 body {
     height: 100vh;
     background: #A7CFE9;
+    display: flex;
 }
 
 .game-board {
     width: 640px;
     height: 640px;
     display: flex;
+    flex-wrap: wrap;
     border: 2px solid lime;
+    margin: auto;
 }
 
 .game-card {
     border: 2px solid purple;
+    height: 20%;
+    width: 15%;
+    position: relative; 
+    margin: 5px;
+    
 }
 
-.card-front {
-    border: 2px solid blue;
+.card-front, .card-back {
+   Height: 100%;
+   width: 100%;
+   position: absolute;
+   border-radius: 5px
+   padding: 10px;
+   
 }
 
-.card-back {
-    border: 2px solid blue;
-}
+
 
