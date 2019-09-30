@@ -57,7 +57,7 @@ function flipBackCard() {
                 boardReset();
                 
                 
-            }, 1000);
+            }, 500);
         }
 
 function boardReset() {
