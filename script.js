@@ -7,6 +7,9 @@ let cardOne, cardTwo;
 
 
 function cardFlip() {
+    if (lockBoard) return; 
+    if (this === cardOne) return; 
+    
     this.classList.add('flip');
 
     if (!turnedOverCard) {
@@ -51,11 +54,24 @@ function flipBackCard() {
                 cardOne.classList.remove('flip');
                 cardTwo.classList.remove('flip');
                 
-                lockBoard = false;
+                boardReset();
                 
                 
-            }, 1500);
+            }, 1000);
         }
+
+function boardReset() {
+    
+    [turnedOverCard, lockBoard] = [false, false];
+    [cardOne, cardTwo] = [null, null];
+}
+
+(function shuffle() {
+  cards.forEach(card => {
+    let randomPos = Math.floor(Math.random() * 12);
+    card.style.order = randomPos;
+  });
+})();
 
 
 cards.forEach(card => card.addEventListener('click', cardFlip));
