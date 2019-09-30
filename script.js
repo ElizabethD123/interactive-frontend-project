@@ -1,6 +1,7 @@
 const cards = document.querySelectorAll('.game-card');
 
 let turnedOverCard = false;
+let lockBoard = false;
 let cardOne, cardTwo;
 
 
@@ -17,23 +18,44 @@ function cardFlip() {
 
         turnedOverCard = false;
         cardTwo = this;
+        
+    matchChecking();
+        
+    }
 
-        // card match
 
-        if (cardOne.dataset.name === cardTwo.dataset.name) {
 
-            cardOne.removeEventListener('click', cardFlip);
+}
+
+function matchChecking () {
+    
+        let foundMatch = cardOne.dataset.name === cardTwo.dataset.name ; 
+foundMatch ? disableCard() : flipBackCard(); 
+
+
+    }
+    
+function disableCard() {
+      cardOne.removeEventListener('click', cardFlip);
             cardTwo.removeEventListener('click', cardFlip);
 
-        }
-        else {
+}
 
+function flipBackCard() {
+    
+    lockBoard = true;
+    
+    
+    
             setTimeout(() => {
                 cardOne.classList.remove('flip');
                 cardTwo.classList.remove('flip');
+                
+                lockBoard = false;
+                
+                
             }, 1500);
         }
-    }
-}
+
 
 cards.forEach(card => card.addEventListener('click', cardFlip));
